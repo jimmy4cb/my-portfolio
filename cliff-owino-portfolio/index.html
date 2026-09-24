@@ -44,9 +44,10 @@
           <a class="nav-link" href="#skills">Skills</a>
           <a class="nav-link" href="#projects">Projects</a>
           <a class="nav-link" href="#education">Education</a>
+          <a class="nav-link" href="#services">What I Do</a>
           <a class="nav-link" href="#contact">Contact</a>
-          <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
-            <span class="theme-toggle-icon">☀️</span>
+          <button class="theme-toggle" type="button" aria-label="Switch to light mode">
+            <span class="theme-toggle-icon" aria-hidden="true">☀</span>
           </button>
         </div>
       </nav>
@@ -81,9 +82,7 @@
           </div>
 
           <div class="hero-visual reveal" aria-hidden="true">
-            <div class="floating-orb orb-one"></div>
-            <div class="floating-orb orb-two"></div>
-            <div class="floating-orb orb-three"></div>
+            <canvas class="network-canvas" id="networkCanvas" width="640" height="560"></canvas>
 
             <div class="terminal-card glass-card">
               <div class="terminal-header">
@@ -217,6 +216,9 @@
                 <li><span>Appen</span><em>Familiar</em></li>
                 <li><span>V7</span><em>Familiar</em></li>
                 <li><span>Supervisely</span><em>Learning</em></li>
+                <li><span>Dataloop</span><em>Learning</em></li>
+                <li><span>Prodigy</span><em>Learning</em></li>
+                <li><span>Toloka</span><em>Learning</em></li>
               </ul>
             </div>
           </div>
@@ -253,7 +255,7 @@
                 <span>JavaScript</span>
                 <span>Web Development</span>
               </div>
-              <button class="project-btn concept-btn" type="button" disabled>Concept</button>
+              <button class="project-btn" type="button" data-project="billing">View Concept</button>
             </article>
 
             <article class="project-card reveal" data-category="web">
@@ -271,7 +273,7 @@
                 <span>JavaScript</span>
                 <span>Web Development</span>
               </div>
-              <button class="project-btn concept-btn" type="button" disabled>Concept</button>
+              <button class="project-btn" type="button" data-project="lakeside">View Concept</button>
             </article>
 
             <article class="project-card reveal" data-category="ai data">
@@ -290,7 +292,7 @@
                 <span>Label Studio</span>
                 <span>Labelbox</span>
               </div>
-              <button class="project-btn" type="button">Learn More</button>
+              <button class="project-btn" type="button" data-project="annotation">Learn More</button>
             </article>
 
             <article class="project-card reveal" data-category="ai">
@@ -311,7 +313,7 @@
                 <span>Data Annotation</span>
                 <span>JavaScript</span>
               </div>
-              <button class="project-btn" type="button">View Concept</button>
+              <button class="project-btn" type="button" data-project="smartflow">View Concept</button>
             </article>
           </div>
         </div>
@@ -321,7 +323,7 @@
         <div class="container">
           <div class="section-heading reveal">
             <p class="section-label">Education</p>
-            <h2>Education &amp; Certifications</h2>
+            <h2>Education &amp; Learning</h2>
           </div>
 
           <div class="timeline reveal">
@@ -341,42 +343,38 @@
               <div class="timeline-dot" aria-hidden="true"></div>
               <div class="timeline-content">
                 <h3>Bachelor of Science in Computer Science</h3>
-                <p class="timeline-tag">Kibabii University - Currently Pursuing</p>
+                <p class="timeline-tag">Kibabii University · Currently Pursuing</p>
                 <p>
-                  Pursuing computer science studies while developing practical skills
-                  in programming, artificial intelligence, data and software development.
+                  Building a foundation in programming, artificial intelligence, data
+                  and software development.
                 </p>
               </div>
             </article>
           </div>
 
-          <div class="education-panels">
-            <div class="learning-panel reveal">
-              <h3>Coding Level</h3>
-              <p class="coding-level">Intermediate</p>
-              <h3>Currently Learning</h3>
-              <ul class="learning-list">
-                <li>Python</li>
-                <li>C</li>
-                <li>JavaScript</li>
-                <li>Git</li>
-                <li>AI concepts</li>
-                <li>Data preparation</li>
-                <li>Web development</li>
-              </ul>
-            </div>
+          <div class="learning-panel reveal">
+            <h3>Currently Learning</h3>
+            <ul class="learning-list">
+              <li>Python</li>
+              <li>C</li>
+              <li>JavaScript</li>
+              <li>Git</li>
+              <li>AI concepts</li>
+              <li>Data preparation</li>
+              <li>Web development</li>
+            </ul>
+          </div>
 
-            <div class="learning-panel certifications-panel reveal">
-              <h3>Certifications</h3>
-              <ul class="certification-list">
-                <li>Master Class Certificate in Artificial Intelligence</li>
-                <li>Foundational Digital Skills</li>
-                <li>Digital Skills for MSMEs</li>
-                <li>Intermediate Digital Skills</li>
-                <li>Advanced Digital Skills</li>
-                <li>Advancing Decent Work in the Culture and Creative Sector</li>
-              </ul>
-            </div>
+          <div class="certifications reveal">
+            <h3>Verified Certifications</h3>
+            <ul class="certification-list">
+              <li>Master Class Certificate in Artificial Intelligence</li>
+              <li>Foundational Digital Skills</li>
+              <li>Digital Skills for MSMEs</li>
+              <li>Intermediate Digital Skills</li>
+              <li>Advanced Digital Skills</li>
+              <li>Advancing Decent Work in the Culture and Creative Sector</li>
+            </ul>
           </div>
         </div>
       </section>
@@ -438,11 +436,11 @@
               <ul class="contact-list">
                 <li>
                   <span>Email</span>
-                  <a href="mailto:owinocliff328@gmail.com">owinocliff328@gmail.com</a>
+                  <div class="contact-value"><a href="mailto:owinocliff328@gmail.com">owinocliff328@gmail.com</a><button class="copy-button" type="button" data-copy="owinocliff328@gmail.com" aria-label="Copy email">Copy</button></div>
                 </li>
                 <li>
                   <span>Phone</span>
-                  <a href="tel:+254116518229">0116518229</a>
+                  <div class="contact-value"><a href="tel:+254116518229">0116518229</a><button class="copy-button" type="button" data-copy="0116518229" aria-label="Copy phone number">Copy</button></div>
                 </li>
                 <li>
                   <span>Location</span>
@@ -494,6 +492,15 @@
         <p>© <span id="year"></span> Cliff Owino. All rights reserved.</p>
       </div>
     </footer>
+
+    <div class="modal-backdrop" id="projectModal" hidden>
+      <div class="project-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button class="modal-close" type="button" aria-label="Close project details">×</button>
+        <p class="section-label">Project Concept</p>
+        <h2 id="modalTitle"></h2>
+        <div id="modalContent"></div>
+      </div>
+    </div>
 
     <button class="back-to-top" type="button" aria-label="Back to top">↑</button>
 
